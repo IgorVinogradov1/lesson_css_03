@@ -1,5 +1,5 @@
-
 import json
+from livereload import Server
 from dotenv import load_dotenv
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -9,8 +9,7 @@ def get_book_catalog():
         books_json = my_file.read()
     return json.loads(books_json)
 
-def main():
-    load_dotenv()
+def on_reload():
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
@@ -24,10 +23,15 @@ def main():
 
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
-    print("index.html создан!")
+    print("index.html обновлен!")
 
-    server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
-    server.serve_forever()
+def main():
+    load_dotenv()
+
+    on_reload()
+    server = Server()
+    server.watch('template.html', on_reload)
+    server.serve(root='.')
 
 if __name__ == '__main__':
     main()
