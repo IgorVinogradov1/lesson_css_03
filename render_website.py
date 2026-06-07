@@ -1,13 +1,15 @@
 import json
 from livereload import Server
 from dotenv import load_dotenv
+from more_itertools import chunked
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def get_book_catalog():
     with open("meta_data.json", "r", encoding='utf-8') as my_file:
         books_json = my_file.read()
-    return json.loads(books_json)
+    books_catalog = json.loads(books_json)
+    return list(chunked(books_catalog, len(books_catalog) // 2))
 
 def on_reload():
     env = Environment(
