@@ -20,9 +20,12 @@ def on_reload(books_catalog):
 
     template = env.get_template('template.html')
 
+    number_of_pages = len(books_catalog)
     for index, books_chunk in enumerate(books_catalog, start=1):
         rendered_page = template.render(
             books = books_chunk,
+            number_of_pages = number_of_pages,
+            current_page = index,
         )
         with open(f'pages/index{index}.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)
@@ -34,7 +37,7 @@ def main():
     books_catalog = get_book_catalog()
     on_reload(books_catalog)
     server = Server()
-    server.watch('template.html', on_reload)
+    server.watch('template.html', lambda: on_reload(books_catalog))
     server.serve(root='.')
 
 if __name__ == '__main__':
