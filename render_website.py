@@ -6,10 +6,10 @@ from more_itertools import chunked
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-def get_book_catalog():
+def get_book_catalog(books_per_page):
     with open('meta_data.json', 'r', encoding='utf-8') as my_file:
         books_data = json.load(my_file)
-    return list(chunked(books_data, 20))
+    return list(chunked(books_data, books_per_page))
 
 def on_reload(books_catalog):
     env = Environment(
@@ -32,7 +32,8 @@ def on_reload(books_catalog):
 def main():
     load_dotenv()
     os.makedirs('pages', mode=0o755, exist_ok=True)
-    books_catalog = get_book_catalog()
+    books_per_page = 20
+    books_catalog = get_book_catalog(books_per_page)
     on_reload(books_catalog)
     server = Server()
     server.watch('template.html', lambda: on_reload(books_catalog))
