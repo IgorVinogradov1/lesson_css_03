@@ -28,7 +28,6 @@ def on_reload(books_catalog):
         )
         with open(f'pages/index{index}.html', 'w', encoding='utf8') as file:
             file.write(rendered_page)
-        print(f'index{index}.html обновлен!')
 
 def main():
     load_dotenv()
