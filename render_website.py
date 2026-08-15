@@ -8,8 +8,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def get_book_catalog():
     with open("meta_data.json", "r", encoding='utf-8') as my_file:
-        books_json = my_file.read()
-    books_data = json.loads(books_json)
+        books_data = json.load(my_file)
     return list(chunked(books_data, 20))
 
 def on_reload(books_catalog):

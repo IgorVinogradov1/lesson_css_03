@@ -64,7 +64,7 @@
                     {% for genre in book.genres.rstrip('.').split(',') %}
                     <span class="badge badge-info" style="overflow-wrap: break-word;">{{ genre }}</span>
                     {% endfor %}
-                    <p class="card-text" style="margin-top: 10px;"><a href="../{{ book.book_path }}">Читать</a></p>
+                    <p class="card-text" style="margin-top: 10px;"><a href="/media/{{ book.book_path }}">Читать</a></p>
                   </div>
                 </div>
               </div>
