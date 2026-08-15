@@ -7,7 +7,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def get_book_catalog():
-    with open("meta_data.json", "r", encoding='utf-8') as my_file:
+    with open('meta_data.json', 'r', encoding='utf-8') as my_file:
         books_data = json.load(my_file)
     return list(chunked(books_data, 20))
 
@@ -26,9 +26,9 @@ def on_reload(books_catalog):
             number_of_pages = number_of_pages,
             current_page = index,
         )
-        with open(f'pages/index{index}.html', 'w', encoding="utf8") as file:
+        with open(f'pages/index{index}.html', 'w', encoding='utf8') as file:
             file.write(rendered_page)
-        print(f"index{index}.html обновлен!")
+        print(f'index{index}.html обновлен!')
 
 def main():
     load_dotenv()
