@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <link rel="icon" type="image/png" href="/static/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/static/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/static/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/static/favicon/site.webmanifest" />
+    <link rel="icon" type="image/png" href="../static/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../static/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../static/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../static/favicon/site.webmanifest" />
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -55,7 +55,7 @@
             <div class="card mb-3" style="max-width: 540px;">
               <div class="row no-gutters">
                 <div class="col-md-4">
-                  <img src="/media/{{ book.img_src | urlencode | replace('%2F', '/') }}" class="card-img" alt="{{ book.title }}" style="height: 250px; object-fit: contain; display: block;">
+                  <img src="../media/{{ book.img_src | urlencode | replace('%2F', '/') }}" class="card-img" alt="{{ book.title }}" style="height: 250px; object-fit: contain; display: block;">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -64,7 +64,7 @@
                     {% for genre in book.genres.rstrip(".").split(",") %}
                       <span class="badge badge-info" style="overflow-wrap: break-word;">{{ genre }}</span>
                     {% endfor %}
-                    <p class="card-text" style="margin-top: 10px;"><a href="/media/{{ book.book_path | urlencode | replace('%2F', '/') }}">Читать</a></p>
+                    <p class="card-text" style="margin-top: 10px;"><a href="../media/{{ book.book_path | urlencode | replace('%2F', '/') }}">Читать</a></p>
                   </div>
                 </div>
               </div>
