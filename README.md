@@ -2,7 +2,7 @@
 
 Учебный проект: верстка онлайн-библиотеки книг с оффлайн-версией.
 
-**Опубликованная версия:** [GitHub Pages](https://igorvinogradov1.github.io/lesson_css_03/)
+**Опубликованная версия:** [GitHub Pages](https://igorvinogradov1.github.io/lesson_css_03/pages/index1.html)
 **Репозиторий:** [GitHub](https://github.com/IgorVinogradov1/lesson_css_03)
 **Курс:** [Девман — Верстаем онлайн-библиотеку](https://dvmn.org/modules/website-layout-for-pydev/lesson/books-library-restyle-3/)
 
@@ -28,7 +28,7 @@
 
 ### Хочу посмотреть опубликованную версию
 
-1. Перейдите на сайт: [GitHub Pages](https://igorvinogradov1.github.io/lesson_css_03/)
+1. Перейдите на сайт: [GitHub Pages](https://igorvinogradov1.github.io/lesson_css_03/pages/index1.html)
 2. Покликайте навигацию, проверьте работу
 
 ---
@@ -51,7 +51,7 @@ pip install -r requirements.txt
 python render-website.py
 ```
 
-4. Открыть в браузере: `http://127.0.0.1:5500`
+4. Открыть в браузере: `http://127.0.0.1:5500/pages/index1.html`
 
 ---
 
